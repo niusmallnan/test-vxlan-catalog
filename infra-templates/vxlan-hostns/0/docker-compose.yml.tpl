@@ -1,6 +1,6 @@
 version: '2'
 
-{{- $netImage:="rancher/net:v0.13.1" }}
+{{- $netImage:="rancher/net:v0.13.17" }}
 
 services:
   vxlan:
@@ -11,6 +11,7 @@ services:
     network_mode: host
     environment:
       RANCHER_DEBUG: '${RANCHER_DEBUG}'
+      RANCHER_VTEP_MTU: '${MTU}'
     ports:
       - 0.0.0.0:4789:4789/udp
     labels:
